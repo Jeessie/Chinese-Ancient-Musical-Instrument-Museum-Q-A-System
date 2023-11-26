@@ -11,7 +11,7 @@ Developed using Django, the System serves as an online Museum, broadening unders
 * jieba, py2neo 4.3.0,
 * Django，Web应用框架，用于交互展示
       
-# Feature introduction
+# File Introduction
 Museum_query_system 程序主文件夹
 * Museum_QA 主要包含前后端交互的接口设置，问句分析的代码，以及分词需要的外部词典的导入
   * code 问答系统后端的主文件
