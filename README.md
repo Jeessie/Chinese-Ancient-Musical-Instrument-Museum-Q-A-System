@@ -1,6 +1,9 @@
 # Chinese-Ancient-Musical-Instrument-Museum-Q&A-System
 Developed using Django, the System serves as an online Museum, broadening understanding of traditional instruments. It utilizes Neo4j to store data and employs template matching for natural language queries, allowing administrators to manage data conveniently through login for operations
 
+<img width="500" alt="1700990968915" src="https://github.com/Jeessie/Chinese-Ancient-Musical-Instrument-Museum-Q-A-System/assets/89070821/29f85b13-11b6-4cc4-9ee1-5d7340b46815"> <img width="500" alt="1700991183882" src="https://github.com/Jeessie/Chinese-Ancient-Musical-Instrument-Museum-Q-A-System/assets/89070821/c1675420-eae6-4e90-b564-89a803a4468f">
+<img width="500" alt="1700991311804" src="https://github.com/Jeessie/Chinese-Ancient-Musical-Instrument-Museum-Q-A-System/assets/89070821/21cd4e33-889d-47a3-8b84-d6ea36ef206e"> <img width="500" alt="1700991340311" src="https://github.com/Jeessie/Chinese-Ancient-Musical-Instrument-Museum-Q-A-System/assets/89070821/bf533bcc-035b-456e-a79a-8c0e0e676b9a">
+
 
 # Environment
 * python3.6-3.8
