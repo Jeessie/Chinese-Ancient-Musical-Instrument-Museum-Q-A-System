@@ -1,0 +1,37 @@
+铜器 nm
+灵璧石 nm
+木 nm
+漆木 nm
+漆木 nm
+玉器 nm
+鹤类尺骨 nm
+青铜 nm
+木 nm
+竹 nm
+骨 nm
+青铜 nm
+钹 nm
+磬 nm
+琴 nm
+琴 nm
+琴 nm
+磬 nm
+竖吹骨笛 nm
+铙 nm
+鼓 nm
+篪（chí） nm
+簧 nm
+甬钟 nm
+琴 nm
+镈 nm
+琴 nm
+律管 nm
+编钟 nm
+镈 nm
+铙 nm
+鼓 nm
+琴 nm
+骨哨 nm
+甬铃 nm
+
+

@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'kanit',sans-serif;
+    box-sizing: border-box;
+}
+body {
+    /* font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    height: 100%;
+    line-height: 1.7;
+    vertical-align: baseline;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility; */
+    /* color: #646464;
+    background-color: #fff; */
+    background-image: url("https://ts1.cn.mm.bing.net/th/id/R-C.8778f2b4eb8d92cdd20091b70a8664a7?rik=aUdCK%2fGx9EefXw&riu=http%3a%2f%2fimg1.cfbond.com%2fgroup1%2fM00%2f03%2fFA%2fwKgBhV2KhnmALiLtAAN1t4ytZWY845.jpg&ehk=RtAN2P2GxDr%2fwh4ts9qo8a6lGNpOoXXtVZN8KCHyYFs%3d&risl=&pid=ImgRaw&r=0");
+    -webkit-filter: opacity(100%);
+    filter: opacity(100%);
+  
+  }
+.navbar{
+    position: fixed;
+    left: 700px;
+    width: 100%;
+    height: 64px;
+    top:0;
+    z-index:9999;
+    transition: .3s linear;
+}
+
+.inner-width{
+    max-width: 1200px;
+    height: 100%;
+    margin: auto;
+}
+
+.navbar .inner-width{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 40px;
+    height: 40px;
+    background-image: url(./img/logo.png);
+    background-size: contain;
+}
+
+.navbar-menu a{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 48px;
+    transition: .2s linear;
+}
+
+.navbar-menu a:hover{
+    font-weight: 800;
+}
+
+.form{
+    border-radius: 57px;
+    background: linear-gradient(145deg, #4b3228b9, #3f2a21c7);
+    /* box-shadow:  28px 28px 56px #3c281f,
+             -28px -28px 56px #51362b; */
+    height: 390px;
+    width: 550px;
+    position: fixed;
+    /* top:30px; */
+    left: 650px;
+    z-index: 999;
+    /* margin: 10px 8000px 10px 10px ; */
+    /* float:right; */
+    transform: scale(0.8);
+    
+  }
+  .buttonClass {
+    font-size:15px;
+    font-family:Arial;
+    width:109px;
+    height:35px;
+    border-width:1px;
+    color:#fff;
+    border-color:rgba(0, 0, 0, 1);
+    font-weight:bold;
+    border-radius: 15px;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
+    background:rgba(0, 0, 0, 1);
+    margin: 5px 5px 5px 5px;
+    /* margin-left: 20px; */
+  }
+  
+  .buttonClass:hover {
+    background: rgba(74, 74, 74, 1)
+  }
+  .text{
+    font-size:15px;
+    font-family:Arial;
+    width:200px;
+    height:30px;
+    border-width:1px;
+    color:#fff;
+    border-radius: 10px;
+    margin: 5px 5px 5px 20px;
+
+  }

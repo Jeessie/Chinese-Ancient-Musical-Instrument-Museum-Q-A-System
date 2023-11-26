@@ -1,0 +1,227 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'kanit',sans-serif;
+    box-sizing: border-box;
+}
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    height: 64px;
+    top: 0;
+    z-index: 999;
+    transition: .3s linear;
+}
+
+.inner-width{
+    max-width: 1200px;
+    height: 100%;
+    margin: auto;
+}
+
+.navbar .inner-width{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 40px;
+    height: 40px;
+    background-image: url(./img/logo.png);
+    background-size: contain;
+}
+
+.navbar-menu a{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 48px;
+    transition: .2s linear;
+}
+
+.navbar-menu a:hover{
+    font-weight: 800;
+}
+
+iframe{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 560px;
+}
+
+.banner{
+    position: absolute;
+    top: 0;
+    width: 1200px;
+    height: 560px;
+    left: 50%;
+    margin-left: -600px;
+}
+
+.banner .content{
+    position: relative;
+    top: 26%;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+h1{
+    font-size: 56px;
+    line-height: 72px;
+    font-weight: 600;
+}
+
+.intro{
+    width: 470px;
+    white-space: normal;
+    word-wrap: normal;
+    margin-top: 24px;
+    color: rgba(255, 255, 255, .8);
+}
+
+.button{
+    display: block;
+    width: 160px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #fff;
+    color: #0c0c0c;
+    padding: auto;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 16px;
+}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600;);
+
+.sample {
+  background-color: #000;
+  display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  margin: 10px;
+  max-width: 315px;
+  min-width: 230px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.sample * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+          transition: all 0.35s ease;
+}
+
+.sample:before,
+.sample:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-transition: all 0.35s ease;
+          transition: all 0.35s ease;
+  background-color: #000;
+  border-left: 3px solid #fff;
+  border-right: 3px solid #fff;
+  content: '';
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.sample:before {
+  -webkit-transform: skew(45deg) translateX(-155%);
+          transform: skew(45deg) translateX(-155%);
+}
+
+.sample:after {
+  -webkit-transform: skew(45deg) translateX(155%);
+          transform: skew(45deg) translateX(155%);
+}
+
+.sample img {
+  backface-visibility: hidden;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.sample figcaption {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  z-index: 2;
+  -webkit-transform: translate(-50%, -50%) scale(0.5);
+          transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  -webkit-box-shadow: 0 0 10px #000;
+          box-shadow: 0 0 10px #000;
+}
+
+.sample h3 {
+  background-color: #000;
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 5px 10px;
+  text-transform: uppercase;
+}
+
+.sample a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.sample:hover > img {
+  opacity: 0.5;
+}
+
+.sample:hover:before {
+  -webkit-transform: skew(45deg) translateX(-55%);
+          transform: skew(45deg) translateX(-55%);
+}
+
+.sample:hover:after {
+  -webkit-transform: skew(45deg) translateX(55%);
+          transform: skew(45deg) translateX(55%);
+}
+
+.sample:hover figcaption {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+/* html {
+    height: 100%;
+  }
+  
+  body {
+    background-color: #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+    margin: 0;
+    height: 100%;
+  } */
+
+.center{
+    display: block;
+    position: absolute;
+    /* padding: 100px 20px ; */
+    left: 80px;
+
+}

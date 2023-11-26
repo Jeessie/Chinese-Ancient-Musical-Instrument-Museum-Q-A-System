@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- use from online-->
+    <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts.js"></script>
+    <!-- use from local-->
+    <script src="/static/js/echarts.min.js"></script>
+    <link rel="stylesheet" href="../../static/css/manage1.css">
+    <title>古乐器博物馆问答系统</title>
+</head>
+<body >
+
+    <br/>
+    <br/> 
+    <br/>
+    <!-- 上方导航栏-->
+    <nav class="navbar">
+        <div class="inner-width">
+            <a href="#" class="logo"></a>
+            <div class="navbar-menu">
+                <a href="{%url 'index'%}">Home</a>
+                <a href="{%url 'query'%}">Project</a>
+                <a href="{%url 'login'%}">Admin</a>
+                <!-- <a href="#">Contact</a>
+                <a href="#">FAQ</a> -->
+            </div>
+        </div>
+    </nav>
+    <!-- 查询框 -->
+    <div class="form">
+        <br/>
+        <div class="pand">
+            <form method="post">
+            {% csrf_token %}
+            <input type='text' name="search" id="searchId" class="text" />
+            <input type="submit" value="查询" class="buttonClass" >
+            </form></div>
+        <div class="center">
+            
+            <form method="post">
+            {% csrf_token %}
+                <select id="labelid" name="labels" class="buttonClass">
+                请选择第一个结点的标签：
+                <option value="Exhibits" class="center">Exhibits</option>
+                <option value="Museum" class="center">	Museum</option>
+                <option value="Person" class="center">Person </option>
+            </select>
+            <input type='text' name="Addone" id="AddoneId" class="text"/>
+            <input type="submit" value="增加结点" class="buttonClass" >
+        </form >
+            <form method="post">
+                {% csrf_token %}
+            <select id="labels1id" name="labels1" class="buttonClass">
+                请选择第一个结点的标签：
+                <option value="Exhibits" class="center">Exhibits</option>
+                <option value="Museum" class="center">	Museum</option>
+                <option value="Person" class="center">Person </option>
+            </select>
+                <input type='text' name="Addrel" id="AddrelId" placeholder="结点1；展出于；结点2"class="text"/>
+                  <select id="labels2id" name="labels2" class="buttonClass">
+                请选择第二个结点的标签：
+                <option value="Exhibits" class="center">Exhibits</option>
+                <option value="Museum" class="center">	Museum</option>
+                <option value="Person" class="center">Person </option>
+            </select>
+                <input type="submit" value="增加关系" class="buttonClass2" >
+            </form>
+        </div>
+        <div class="pand">
+             <form method="post">
+            {% csrf_token %}
+            <input type='text' name="deletenode" id="deletenodeId" class="text" />
+            <input type="submit" value="删除结点" class="buttonClass">
+        </form>
+        </div>
+        <br/>
+    <div class="center">
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit"  name="searchall" value="查看全部" class="buttonClass1">
+    <!-- </form>
+          <form method="post"> -->
+        {% csrf_token %}
+        <input type="submit" name="deleteall" value="清空数据库"  class="buttonClass1">
+    </form>
+        <br/>
+        <br/>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" name="logout"  class="buttonClass1">登出</button>
+        </form>
+    </div>
+
+</div>
+<!--    <input type="submit" name="logout" value="登出" class="buttonClass1">-->
+<!--         <div class="logout">-->
+
+<!--            <input type="submit" name="logout" value="登出" class="buttonClass1">-->
+<!--        -->
+<!--</div>-->
+
+<div id="main" class="neo4j">
+<h1>{{rlt}}</h1>
+{% if ctx %}
+        <div style="width: 800px;height: 700px;border: 2px solid rgb(249, 248, 248);text-align: center;line-height: 704px;">
+            <h1>该数据库中未添加该实体</h1>
+        </div>
+    {% endif %}
+    {% if search_neo4j_data %}
+        <div id="container_search" style="width: 800px;height: 700px;border: 2px solid rgb(247, 244, 244)"></div>
+    {% endif %}
+</div>
+    <script type="text/javascript">
+        var data = {{ data|safe }};
+        var link = {{ link|safe }};
+        // alert(data);
+        var myChart = echarts.init(document.getElementById('main'));
+        var categories = [{name: 'Exhibits'},{name: 'Museum'},{name: 'Person'}];
+    
+        option = {
+            // 图的标题
+            title: {
+                text: '古乐器展览数据图',
+                textStyle:{
+                    color:'white',
+                }
+            },
+            // 提示框的配置
+            tooltip: {
+                formatter: function (x) {
+                    return x.data.des;
+                }
+            },
+            // 工具箱
+            toolbox: {
+                // 显示工具箱
+                show: true,
+                feature: {
+                    mark: {
+                        show: true
+                    },
+                    // 还原
+                    restore: {
+                        show: true
+                    },
+                    // 保存为图片
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            legend: [{
+                // selectedMode: 'single',
+                textStyle:{
+			    color:"white"
+		        },
+                data: categories.map(function (a) {
+                    return a.name;
+                })
+            }],
+            series: [{
+                type: 'graph',// 类型:关系图
+                layout: 'force', //图的布局，类型为力导图
+                symbolSize: 40, // 调整节点的大小
+                roam: true, // 是否开启鼠标缩放和平移漫游。默认不开启。如果只想要开启缩放或者平移,可以设置成 'scale' 或者 'move'。设置成 true 为都开启
+                edgeSymbol: ['circle', 'arrow'],
+                edgeSymbolSize: [2, 10],
+                edgeLabel: {
+                    normal: {
+                        textStyle: {
+                            fontSize: 20
+                        }
+                    }
+                },
+                force: {
+                    repulsion: 2500,
+                    edgeLength: [10, 50]
+                },
+                draggable: true,
+                lineStyle: {
+                    normal: {
+                        width: 2,
+                        color: 'white',
+                        curveness:0.5,
+                    }
+                },
+                edgeLabel: {
+                    normal: {
+                        show: true,
+                        formatter: function (x) {
+                            return x.data.name;
+                        }
+                    }
+                },
+                label: {
+                    normal: {
+                        show: true,
+                        textStyle: {},
+                        position:'inside'
+                    }
+                },
+    
+                // 数据
+                data: data,
+                links: link,
+                categories: categories,
+            }]
+        };
+        myChart.setOption(option);
+    </script>
+
+</body>
+</html>

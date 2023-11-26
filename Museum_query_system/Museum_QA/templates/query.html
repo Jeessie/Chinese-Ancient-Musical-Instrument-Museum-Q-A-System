@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/query.css' %}"> -->
+    <title>古乐器信息查询</title>
+    <style type="text/css">
+        a.url:link,a.url:visited{
+        color: #fff;
+        text-decoration: none;
+    }
+    a.url:hover{
+        color:rgb(178, 196, 142);
+        position: relative;
+        top:1px;
+    }
+        .container {
+            position: absolute;
+            margin-left: 100px;
+            margin-top: 50px;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            z-index: 5;
+        }
+        .photo {
+            width: 1600px;
+            animation: switch 9s ease-out infinite;
+        }
+        .photo > img {
+            float: left;
+            width: 400px;
+            height: 400px;
+        }
+        #answer{
+            z-index: 10;
+            position: absolute;
+            margin-top: 150px;
+            margin-left: 650px;
+            color: #e9e3d3;
+            font-family: '宋体';
+            font-size: 25px;
+        }
+        @keyframes switch {
+            0%,20% {
+                margin-left: 0;
+            }
+
+            30%,50% {
+                margin-left: -400px;
+            }
+
+            60%,83% {
+                margin-left: -800px;
+            }
+
+            95%,100% {
+                margin-left: -1200px;
+            }
+        }
+        .a_form{
+            position:absolute;
+            top:140%;
+            left: 8%;
+            right: 10%;
+            border: 0;
+            border-radius: 15px;
+            width: 1000px;
+            height: 500px;
+            padding: 20px;
+            background-color: #3f382c
+        }
+        #m_img,#pp_img{
+            position: absolute;
+            margin-left: 100px;
+            margin-top: 50px;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            z-index: 5;
+        }
+        #dandiao{
+            z-index: 10;
+            color: #e9e3d3;
+            font-family: '宋体';
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body style="background-color:#000000ea ;">
+    <!-- NavBar -->
+    <nav class="navbar">
+        <div class="inner-width">
+            <a href="#" class="logo"></a>
+            <div class="navbar-menu">
+                <a href="{%url 'index'%}">Home</a>
+                <a href="{%url 'query'%}">Project</a>
+                <a href="{%url 'login'%}">Admin</a>
+            </div>
+        </div>
+    </nav>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div class="app">
+        <div class="cardList">
+            <!-- 左按钮 -->
+            <button class="cardList__btn btn btn--left">
+                <div class="icon">
+                    <svg>
+                        <use xlink:href="#arrow-left"></use>
+                    </svg>
+                </div>
+            </button>
+            <!-- 图片展示 -->
+            <div class="cards__wrapper">
+                <div class="card current--card">
+                    <div class="card__image">
+                        <img src="https://ts1.cn.mm.bing.net/th/id/R-C.8778f2b4eb8d92cdd20091b70a8664a7?rik=aUdCK%2fGx9EefXw&riu=http%3a%2f%2fimg1.cfbond.com%2fgroup1%2fM00%2f03%2fFA%2fwKgBhV2KhnmALiLtAAN1t4ytZWY845.jpg&ehk=RtAN2P2GxDr%2fwh4ts9qo8a6lGNpOoXXtVZN8KCHyYFs%3d&risl=&pid=ImgRaw&r=0" alt="" />
+                    </div>
+                </div>
+    
+                <div class="card next--card">
+                    <div class="card__image">
+                        <img src="https://ts1.cn.mm.bing.net/th/id/R-C.205ddb964f353cd5b55f4dc007b77ba3?rik=4m4WVndVG%2fOkLA&riu=http%3a%2f%2fwenhui.whb.cn%2fu%2fcms%2fwww%2f202008%2f06163652t5r5.jpg&ehk=zuPzf6qPObquyqcmJhy6v9B%2bInxudZfUd1BqE8dTBas%3d&risl=&pid=ImgRaw&r=0" alt="" />
+                    </div>
+                </div>
+    
+                <div class="card previous--card">
+                    <div class="card__image">
+                        <img src="https://ts1.cn.mm.bing.net/th/id/R-C.8089d8919e155a6116f2d26d7832020f?rik=klkTHYMzEiNPXw&riu=http%3a%2f%2fwww.yac8.com%2fupFiles%2finfoImg%2f2012120925122707.jpg&ehk=UNmZZbakrlJWLNYODcPrNA06wxFG89ExGq%2fC%2fELU3Dk%3d&risl=&pid=ImgRaw&r=0" alt="" />
+                    </div>
+                </div>
+            </div>
+    
+            <!-- 右按钮 -->
+            <button class="cardList__btn btn btn--right">
+                <div class="icon">
+                    <svg>
+                        <use xlink:href="#arrow-right"></use>
+                    </svg>
+                </div>
+            </button>
+        </div>
+    
+        <!-- 对应的信息 -->
+        <div class="infoList">
+            <div class="info__wrapper">
+                <div class="info current--info">
+                    <h1 class="text name">展品查询模板</h1>
+                    <!-- <h4 class="text location">SLC, UT</h4> -->
+                    <p class="text description">xxx的年代是什么</p>
+                    <p class="text description">xxx的历史背景故事是什么</p>
+                    <p class="text description">xxx的种类是什么</p>
+                    <p class="text description">xxx的音色是什么</p>
+                    <p class="text description">xxx的制造者是谁</p>
+                    <p class="text description"> xxx的题词者是谁</p>
+                    <p class="text description">xxx和哪些人有关</p>
+                    <p class="text description">xxx展出于哪个博物馆</p>
+                    <p class="text description">xx材质的展品有哪些</p>
+                
+                    
+                </div>
+    
+                <div class="info next--info">
+                    <h1 class="text name">博物馆查询模板</h1>
+                    <!-- <h4 class="text location">Hungary</h4> -->
+                    <p class="text description">xxx博物馆有哪些展品</p>
+                    <p class="text description">xxx博物馆的地址/在哪</p>
+                    <p class="text description">xxx博物馆的简介/介绍</p>
+                    <p class="text description">xxx展出于哪个博物馆</p>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
+    
+                <div class="info previous--info">
+                    <h1 class="text name">乐器相关人物查询模板</h1>
+                    <!-- <h4 class="text location">Patra, Greece</h4> -->
+                    <p class="text description">xxx为什么展品题字了</p>
+                    <p class="text description">xxx与什么展品相关</p>
+                    <p class="text description">xxx题了什么字</p>
+                    <p class="text description">xxx的制造者是谁</p>
+                    <p class="text description"> xxx的题词者是谁</p>
+                    <p class="text description">xxx和哪些人有关</p>
+<!--                    <p class="text description">xxx与什么展品相关</p>-->
+
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
+            </div>
+        </div>
+    
+    
+        <!-- 对应的背景 -->
+        <div class="app__bg">
+            <div class="app__bg__image current--image">
+                <img src="https://ts1.cn.mm.bing.net/th/id/R-C.8778f2b4eb8d92cdd20091b70a8664a7?rik=aUdCK%2fGx9EefXw&riu=http%3a%2f%2fimg1.cfbond.com%2fgroup1%2fM00%2f03%2fFA%2fwKgBhV2KhnmALiLtAAN1t4ytZWY845.jpg&ehk=RtAN2P2GxDr%2fwh4ts9qo8a6lGNpOoXXtVZN8KCHyYFs%3d&risl=&pid=ImgRaw&r=0" alt="" />
+            </div>
+            <div class="app__bg__image next--image">
+                <img src="https://ts1.cn.mm.bing.net/th/id/R-C.205ddb964f353cd5b55f4dc007b77ba3?rik=4m4WVndVG%2fOkLA&riu=http%3a%2f%2fwenhui.whb.cn%2fu%2fcms%2fwww%2f202008%2f06163652t5r5.jpg&ehk=zuPzf6qPObquyqcmJhy6v9B%2bInxudZfUd1BqE8dTBas%3d&risl=&pid=ImgRaw&r=0" alt="" />
+            </div>
+            <div class="app__bg__image previous--image">
+                <img src="https://ts1.cn.mm.bing.net/th/id/R-C.8089d8919e155a6116f2d26d7832020f?rik=klkTHYMzEiNPXw&riu=http%3a%2f%2fwww.yac8.com%2fupFiles%2finfoImg%2f2012120925122707.jpg&ehk=UNmZZbakrlJWLNYODcPrNA06wxFG89ExGq%2fC%2fELU3Dk%3d&risl=&pid=ImgRaw&r=0" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <div class="search">
+        <form>
+            {% csrf_token %}
+            <input type="text" name="ask" id='ask' class="inputText"/><br/>
+
+            <input  type="button" class="submit-btn" name="Search" id="Search" value="Search"/>
+        </form>
+    </div>
+    <div class="a_form">
+
+        <div class="container">
+            <p class="photo" id="p_img"></p>
+         </div>
+         <p id="answer"></p>
+         <p id="dandiao"></p>
+         <div id="pp_img"></div>
+         <div id="m_img"></div>
+
+    </div>
+    <!-- 绘制按钮 -->
+<svg class="icons" style="display: none;">
+    <symbol id="arrow-left" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+        <polyline points='328 112 184 256 328 400'
+                     style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+    </symbol>
+    <symbol id="arrow-right" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+        <polyline points='184 112 328 256 184 400'
+                     style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+    </symbol>
+</svg>
+    <script src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js'></script>
+    <script  src="{% static 'js/script.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $('#Search').click(function () {
+                // 朝后端发送ajax请求
+                $.ajax({
+                    // 1.指定朝哪个后端发送ajax请求
+                    url:"{% url 'query' %}", //不写就是朝当前地址提交【与form表单的action参数相同】
+                    // 2.请求方式
+                    type:'post',  // 不指定默认就是get，都是小写
+                    // 3.数据
+                    //data:{'ask':$('#ask').val(),'csrfmiddlewaretoken': crsf},
+                    data:{'ask':$('#ask').val()},
+                    dataType:"json",
+
+                    // 4.回调函数:当后端给你返回结果的时候会自动触发，args接受后端的返回结果
+                    success:function (args) {
+                        $('#p_img').html('')
+                        $('#answer').html('')
+                        $('#dandiao').html('')
+                        $('#pp_img').html('')
+                        $('#m_img').html('')
+                        //清空所有回答区域标签的内容
+                        var txt = args['rlt'][0];
+                        // alert(txt)
+                        if(args['rlt'].length>0 && args['pic'].length==0 && args['museum'].length==0)
+                        {
+                            var rlt = args['rlt']
+                            $('#dandiao').html('为您查询到的结果是：'+txt)
+                            for (var i=1;i<rlt.length;i++){
+                                $('#dandiao').append(' '+rlt[i])
+                            }
+                        }
+                        else{
+                            if (args['rlt'].length>0){ //返回文字
+                                var rlt = args['rlt']
+                                $('#answer').html(rlt[0])
+                                for (var i=1;i<rlt.length;i++){
+                                    $('#answer').append('<br/>'+rlt[i])
+                                }
+                            }
+                            else{
+                                $('#dandiao').html('我还是一个小系统，查询不到哟')
+                            }
+
+                        if (args['pic'].length>0){ // 返回展品图片
+                            var pics = args['pic'];
+                            if(pics.length>1){
+                                $('#p_img').html('<img src="'+encodeURI(pics[0])+'" title='+rlt[0]+'>');
+                                for (var i=1;i<pics.length;i++){
+                                    $('#p_img').append('<img src="'+encodeURI(pics[i])+'" title='+rlt[i]+'>')
+                            }
+                            }
+                            else{
+<!--                                $('#p_img').html('')-->
+                                // alert('<img src="'+encodeURI(pics[0])+'" width="400px" title='+rlt[0]+'>');
+                                $('#pp_img').html('<img src="'+encodeURI(pics[0])+'" width="400px" title='+rlt[0]+'>')
+                            }
+                        }
+
+
+                        if (args['museum'].length>0){ // 返回该博物馆url和图片
+                            var mus = args['museum'];
+                            $('#answer').html('<a class="url" href="'+encodeURI(mus[0])+'" target="_blank">'+txt+'</ a>')
+                            $('#m_img').html('<img src="'+encodeURI(mus[1])+'" width="400px" title='+rlt[0]+'>')
+                            }
+                        }
+                       
+
+                        
+                    }
+                })
+            })
+             });
+    </script>
+</body>
