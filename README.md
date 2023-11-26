@@ -7,7 +7,7 @@ Developed using Django, the System serves as an online Museum, broadening unders
 * jieba, py2neo 4.3.0,
 * Django，Web应用框架，用于交互展示
       
-# 主要文件夹功能说明
+# Feature introduction
 Museum_query_system 程序主文件夹
 * Museum_QA 主要包含前后端交互的接口设置，问句分析的代码，以及分词需要的外部词典的导入
   * code 问答系统后端的主文件
@@ -20,7 +20,7 @@ Museum_query_system 程序主文件夹
   * view.py 前端网页的接口
 * mysite-settings 设置django和数据库和前端网页的连接
 
-# 项目运行
+# Running
 * 运行Museum_query_system文件夹中的main.py，开启命令行模式。
 ```
 python
